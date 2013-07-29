@@ -1,0 +1,9 @@
+import subprocess
+option="/etc/resolv.conf"
+parameter="-l"
+
+p = subprocess.Popen(["ls", parameter, option], stdout=subprocess.PIPE)
+
+output, err = p.communicate()
+
+print "*** Running ls -l command ***\n", output
