@@ -7,3 +7,23 @@ p = subprocess.Popen(["ls", parameter, option], stdout=subprocess.PIPE)
 output, err = p.communicate()
 
 print "*** Running ls -l command ***\n", output
+
+
+
+
+
+
+
+
+
+***************************
+Block Access To Outgoing IP TCP / UDP Port Number
+
+It is also possible to block specific port numbers. For example, you can block tcp port # 5050 as follows:
+iptables -A OUTPUT -p tcp –dport 5050 -j DROP
+
+To block tcp port # 5050 for an IP address 192.168.1.2 only, enter:
+iptables -A OUTPUT -p tcp -d 192.168.1.2 –dport 5050 -j DROP
+
+Finally, you need to save your firewall rules. Under CentOS / RHEL / Fedora Linux, enter:
+# /sbin/service iptables save
